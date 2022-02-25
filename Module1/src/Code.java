@@ -36,19 +36,25 @@ public class Code {
         wait(1);
         System.out.println("(x "+operator1+x+")² - "+specialX+" "+operator2+" "+last);
         wait(1);
+        // Turns specialX Negative
+        specialX = negate(specialX);
         if (operator2.equals("+")) {
-            return "(x "+operator1+x+")² "+(negate(specialX)+last);
+            // If the second operator is +, adds specialX and list
+            return "(x "+operator1+x+")² "+(specialX+last);
         } else if(operator2.equals("-")) {
-            return "(x "+operator1+x+")² "+(negate(specialX)-last);
+            // If the second operator is -, subtracts last from specialX
+            return "(x "+operator1+x+")² "+(specialX-last);
         }
         return "";
     }
 
+    // Pauses application for certain amount of time
     public static void wait(int seconds) throws InterruptedException {
         int millis = seconds * 1000;
         Thread.sleep(millis);
     }
 
+    // Returns negative Value
     public int negate(int currentValue) {
         return (-currentValue);
     }
